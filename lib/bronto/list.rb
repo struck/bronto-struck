@@ -18,6 +18,21 @@ module Bronto
       Array.wrap(resp[:return][:results]).select { |r| r[:is_error] }.count == 0
     end
 
+    def self.read_lists(*lists)
+      lists = lists.flatten
+      api_key = lists.first.is_a?(String) ? lists.shift : self.api_key
+
+      resp = request(:read, api_key) do
+        soap.body = {
+          list: lists.map { |l| { id: l.id } }
+        }
+      end
+
+      lists.each { |l| l.reload }
+
+      Array.wrap(resp[:return][:results]).select { |r| r[:is_error] }.count == 0
+    end
+
     def initialize(options = {})
       super(options)
       self.active_count ||= 0
