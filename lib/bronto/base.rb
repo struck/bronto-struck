@@ -1,14 +1,5 @@
 module Bronto
 
-  def self.config
-    @@config ||= Config.new
-  end
-  
-  def self.configure
-    @@config = Config.new
-    yield config
-  end
-
   # According to Bronto's API documentation, the session credential returned by the
   # login() API call remains active for 20 minutes.  In addition, the expiration time
   # is reset after each successful use.  We will trigger a refresh before 20 minutes 
@@ -17,22 +8,17 @@ module Bronto
 
   class Base
     attr_accessor :id, :api_key, :errors
-      def self.auth
-    {
-      # client_id: config.client_id,
-      api_key: config.api_key
-    }
-  end
-    # @@api_key = nil
 
-    # # Getter/Setter for global API Key.
-    # def self.api_key=(api_key)
-    #   @@api_key = api_key
-    # end
+    @@api_key = nil
 
-    # def self.api_key
-    #   @@api_key
-    # end
+    # Getter/Setter for global API Key.
+    def self.api_key=(api_key)
+      @@api_key = api_key
+    end
+
+    def self.api_key
+      @@api_key
+    end
 
     # Simple helper method to convert class name to downcased pluralized version (e.g., Field -> fields).
     def self.plural_class_name

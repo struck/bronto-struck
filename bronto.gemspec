@@ -21,8 +21,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "turn"
   gem.add_development_dependency "shoulda"
 
-  gem.add_runtime_dependency "hashie"
-
   gem.homepage = "https://github.com/struck/bronto-struck"
   gem.license = "MIT"
 end

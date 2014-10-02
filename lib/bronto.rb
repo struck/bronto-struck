@@ -1,7 +1,6 @@
 require "savon"
 
 require "bronto/base"
-require "bronto/config"
 require "bronto/contact"
 require "bronto/delivery"
 require "bronto/field"
