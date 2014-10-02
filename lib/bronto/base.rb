@@ -56,6 +56,7 @@ module Bronto
       @api = Savon::Client.new do
         wsdl.endpoint = "https://api.bronto.com/v4"
         wsdl.namespace = "http://api.bronto.com/v4"
+        wsdl.document = "https://api.bronto.com/v4?wsdl"
       end
 
       # Give Bronto up to 10 minutes to reply
