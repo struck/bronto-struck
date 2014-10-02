@@ -1,5 +1,14 @@
 module Bronto
 
+  def self.config
+    @@config ||= Config.new
+  end
+  
+  def self.configure
+    @@config = Config.new
+    yield config
+  end
+
   # According to Bronto's API documentation, the session credential returned by the
   # login() API call remains active for 20 minutes.  In addition, the expiration time
   # is reset after each successful use.  We will trigger a refresh before 20 minutes 
