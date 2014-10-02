@@ -1,3 +1,5 @@
+require 'hashie'
+
 module Bronto
 
   # According to Bronto's API documentation, the session credential returned by the
