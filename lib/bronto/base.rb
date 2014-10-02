@@ -17,17 +17,22 @@ module Bronto
 
   class Base
     attr_accessor :id, :api_key, :errors
+      def self.auth
+    {
+      # client_id: config.client_id,
+      api_key: config.api_key
+    }
+  end
+    # @@api_key = nil
 
-    @@api_key = config.api_key
+    # # Getter/Setter for global API Key.
+    # def self.api_key=(api_key)
+    #   @@api_key = api_key
+    # end
 
-    # Getter/Setter for global API Key.
-    def self.api_key=(api_key)
-      @@api_key = api_key
-    end
-
-    def self.api_key
-      @@api_key
-    end
+    # def self.api_key
+    #   @@api_key
+    # end
 
     # Simple helper method to convert class name to downcased pluralized version (e.g., Field -> fields).
     def self.plural_class_name
