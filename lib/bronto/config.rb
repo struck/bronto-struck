@@ -1,6 +1,6 @@
 require 'hashie'
 
-class Brontp::Config < Hashie::Mash
+class Bronto::Config < Hashie::Mash
   
   def initialize
     # Automatic configuration
