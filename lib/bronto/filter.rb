@@ -1,5 +1,5 @@
 # Represents a filter (which is actually a set of filters).
-# For more information, see the [Bronto documentation](http://community.bronto.com/api/v4/filters).
+# For more information, see the [Bronto documentation](http://dev.bronto.com/api/v4/objects/filters/).
 
 module Bronto
   class Filter
