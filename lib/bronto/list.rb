@@ -24,11 +24,11 @@ module Bronto
 
       resp = request(:read, api_key) do
         soap.body = {
-          list: lists.map { |j| { id: j.id } }
+          list: lists.map { |l| { id: l.id } }
         }
       end
 
-      lists.each { |j| j.reload }
+      lists.each { |l| l.reload }
 
       Array.wrap(resp[:return][:results]).select { |r| r[:is_error] }.count == 0
     end
